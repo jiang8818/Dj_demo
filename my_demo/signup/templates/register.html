@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <div class="container">
+        <h1 class="text-center logo my-4">
+        注册新用户
+       </h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" novalidate>
+                            {% csrf_token %}
+                            {% include 'includes/form.html' %}
+                            <button type="submit" class="btn-primary btn-lg btn-block">注册用户</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="text-center">
+            <small>
+                已有账号？<a href="{% url 'login'%}">去登录</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;忘记密码？<a href="{% url 'password_reset' %}">去重置</a>
+            </small>
+        </div>
+{% endblock %}
